@@ -121,7 +121,7 @@ public class EmployeeInfo{
                 hourlyRate = 50;
                 break;
         }
-        monthPayment = hoursWorked * hourlyRate;
+        monthPayment = hoursWorked * hourlyRate * 4;
         return monthPayment;
     }
     protected double annualSalary(int monthPayment){
@@ -131,7 +131,7 @@ public class EmployeeInfo{
     }
     protected double actualPayment(int taxRate, double monthPayment){
         double afterTax = monthPayment * taxRate;
-        netMonthPay = monthPayment + afterTax;
+        netMonthPay = monthPayment - afterTax;
 
         return netMonthPay;
 

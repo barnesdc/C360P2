@@ -45,5 +45,6 @@
             </FXCollections>
          </items>
       </ComboBox>
+      <Button layoutX="414.0" layoutY="310.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="139.0" text="Display Salary" />
    </children>
 </Pane>
