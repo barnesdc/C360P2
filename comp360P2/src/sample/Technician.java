@@ -13,6 +13,7 @@ public class Technician extends EmployeeInfo{
     public int getOverTimeHrs() {
         return overTimeHrs;
     }
+    public void setO
 
     public double overtimePay(double overTimeRate, int overTimeHrs, double monthlyPay){
 
