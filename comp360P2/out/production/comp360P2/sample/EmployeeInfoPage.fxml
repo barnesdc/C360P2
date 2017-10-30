@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane id="loginPage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="405.0" prefWidth="600.0" style="-fx-border-color: black; -fx-border-width: 3px; -fx-border-style: solid;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="205.0" fitWidth="189.0" layoutX="389.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Pictures/aggieDog.jpg" />
+         </image>
+      </ImageView>
+      <TextField alignment="CENTER" layoutX="27.0" layoutY="133.0" promptText="First Name" />
+      <Button layoutX="411.0" layoutY="222.0" mnemonicParsing="false" text="Submit" />
+      <Button alignment="CENTER" layoutX="491.0" layoutY="222.0" mnemonicParsing="false" text="Clear" />
+      <Button layoutX="463.0" layoutY="261.0" mnemonicParsing="false" text="Exit" />
+      <TextField alignment="CENTER" layoutX="202.0" layoutY="133.0" promptText="Last Name" />
+      <TextField alignment="CENTER" layoutX="27.0" layoutY="165.0" prefHeight="27.0" prefWidth="342.0" promptText="Address" />
+      <TextField alignment="CENTER" layoutX="27.0" layoutY="201.0" promptText="Telephone" />
+      <TextField alignment="CENTER" layoutX="202.0" layoutY="311.0" promptText="Employee SSN" />
+      <CheckBox layoutX="33.0" layoutY="248.0" mnemonicParsing="false" text="Overtime ?" />
+      <TextField alignment="CENTER" layoutX="27.0" layoutY="41.0" prefHeight="47.0" prefWidth="342.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-width: 2;" text="Employee Payroll System">
+         <effect>
+            <Glow />
+         </effect>
+         <font>
+            <Font size="24.0" />
+         </font>
+      </TextField>
+      <CheckBox layoutX="33.0" layoutY="310.0" mnemonicParsing="false" text="Successful Manager?" />
+      <CheckBox layoutX="33.0" layoutY="278.0" mnemonicParsing="false" text="New Product?" />
+      <TextField alignment="CENTER" layoutX="202.0" layoutY="201.0" promptText="Hours Worked" />
+      <TextField alignment="CENTER" layoutX="202.0" layoutY="274.0" promptText="Overtime Hours Worked" />
+      <ComboBox fx:id="Jobcombo" layoutX="202.0" layoutY="236.0" prefHeight="27.0" prefWidth="167.0" promptText="Select Position">
+         <items>
+            <FXCollections fx:factory="observableArrayList">
+               <String fx:value="Technician"/>
+               <String fx:value="Engineer"/>
+               <String fx:value="Manager"/>
+            </FXCollections>
+         </items>
+      </ComboBox>
+      <Button layoutX="414.0" layoutY="310.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="139.0" text="Display Salary" />
+   </children>
+</Pane>
