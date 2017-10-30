@@ -1,10 +1,18 @@
 package sample;
 
-public class Manager {
+public class Manager extends EmployeeInfo{
     private boolean excellentRating;
     private double salaryBonus = .03;
+    private double actualBonus;
 
-    public Manager(double empHourlyRate, int empHoursWorked, double empMonthPayment, String empLastName, String empFirstName, String empAddress, String empTelephone, String empSSN, String empJob, double empYearlySalary, double empNetMonthPay, double empTaxRate) {
-      //  super(empHourlyRate, empHoursWorked, empMonthPayment, empLastName, empFirstName, empAddress, empTelephone, empSSN, empJob, empYearlySalary, empNetMonthPay, empTaxRate);
+
+    public double getSalaryBonus(){
+        return actualBonus;
+    }
+    public void setSalaryBonus(){
+        if(excellentRating){
+            actualBonus = this.getYearlySalary();
+        }
+
     }
 }

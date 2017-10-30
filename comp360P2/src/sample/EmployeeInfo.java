@@ -5,7 +5,7 @@ package sample;
 public class EmployeeInfo{
 
     private double hourlyRate;
-    private int hoursWorked;
+    protected int hoursWorked;
     private double monthPayment;
     private String lastName;
     private String firstName;
@@ -17,7 +17,7 @@ public class EmployeeInfo{
     protected double netMonthPay;
 
     public double taxRate = .2;
-
+/*
     public EmployeeInfo(double empHourlyRate,
                            int empHoursWorked,
                         double empMonthPayment,
@@ -42,7 +42,7 @@ public class EmployeeInfo{
         job         = empJob;
 
     }
-
+*/
 
     private String getLastName() {
         return lastName;
@@ -124,11 +124,15 @@ public class EmployeeInfo{
         monthPayment = hoursWorked * hourlyRate * 4;
         return monthPayment;
     }
-    protected double annualSalary(int monthPayment){
-        yearlySalary = monthPayment * 12;
 
+    public double getYearlySalary(){
         return yearlySalary;
     }
+    protected void setAnnualSalary(int monthPayment){
+        yearlySalary = monthPayment * 12;
+
+    }
+
     protected double actualPayment(int taxRate, double monthPayment){
         double afterTax = monthPayment * taxRate;
         netMonthPay = monthPayment - afterTax;
