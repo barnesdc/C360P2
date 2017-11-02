@@ -44,49 +44,51 @@ public class EmployeeInfo{
     }
 */
 
-    private String getLastName() {
+    public String getLastName() {
         return lastName;
     }
 
-    private void setLastName(String lastName){
+    public void setLastName(String lastName){
         this.lastName = lastName;
     }
 
-    private String getFirstName() {
+    public String getFirstName() {
         return firstName;
     }
 
-    private void setFirstName(String firstName) {
+    public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
-    private String getAddress() {
+    public String getAddress() {
         return address;
     }
 
-    private void setAddress(String address) {
+    public void setAddress(String address) {
         this.address = address;
     }
 
-    private String getTelephone() {
+    public String getTelephone() {
         return telephone;
     }
 
-    private void setTelephone(String telephone) {
+    public void setTelephone(String telephone) {
         this.telephone = telephone;
     }
 
-    private String getSsn() {
+    public String getSsn() {
         return ssn;
     }
 
-    private void setSsn(String ssn) {
+    public void setSsn(String ssn) {
         this.ssn = ssn;
     }
 
-    public String jobTitle(){
-        //input validation for whether or not they inputted the correct job
+    public String getJobTitle(){
         return job;
+    }
+    public void setJobTitle(){
+        //get from check box
     }
 
     public double getHourlyRate() {
