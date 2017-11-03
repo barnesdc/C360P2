@@ -1,5 +1,10 @@
 package sample;
 
+
+//****************************************************************************************************************//
+                                //Engineer Class that inherits from EmployeeInfo//
+//****************************************************************************************************************//
+
 public class Engineer extends EmployeeInfo {
 
     private boolean newProfitProduct;

@@ -16,6 +16,9 @@ import javafx.event.*;
 
 public class Controller {
 
+    //****************************************************************************************************************//
+                                    //Declarations for actual buttons from form//
+    //****************************************************************************************************************//
     @FXML // ResourceBundle that was given to the FXMLLoader
     private ResourceBundle resources;
 
@@ -69,28 +72,63 @@ public class Controller {
 
     employeeList e = new employeeList(); // init arraylist
 
+    //****************************************************************************************************************//
+                                        //Handlers for buttons//
+    //****************************************************************************************************************//
+
+    // Method for submit button
+    // Receives all inputs from form and places into employeeArraylist
     @FXML
     void handleSubmit(ActionEvent event) {
         btnSubmit.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 String fName = txtFirstName.getText();
-                e.getEmployee(fName);
+                String lName = txtLastName.getText();
+                String addy = txtAddress.getText();
+                String phone = txtPhone.getText();
+                int hours = Integer.parseInt(txtAddress.getText());
+                String ssn = txtSSN.getText();
+                // create if state to assign job from comboBox
+                // String job = Jobcombo.
+
+
+
+                e.getEmployee(fName,lName,addy,phone,ssn, hours); //calls methods from employee class
             }
         });
     }
 
+    // Method to clear all items on form
     @FXML
     void handleClear(ActionEvent event) {
-
+        btnClear.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                txtFirstName.clear();
+                txtLastName.clear();
+                txtAddress.clear();
+                txtPhone.clear();
+                txtHrsWorked.clear();
+                txtOvertime.clear();
+                txtSSN.clear();
+                chkOvertime.setSelected(false);
+                chkNewProduct.setSelected(false);
+                chkSucManager.setSelected(false);
+                // Need to figure out how to get input from 'comboBox'
+            }
+        });
     }
 
+    // Method to exit the program
     @FXML
     void handleExit(ActionEvent event) {
         btnExit.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 System.exit(0);
+                // Figure out if there is a better way to exit the program
+                // Is it normal for double click all buttons to exit, submit, etc
             }
         });
     }
@@ -98,8 +136,18 @@ public class Controller {
 
     @FXML
     void handleDisplay(ActionEvent event) {
+        btnDisplay.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                //method to display all data
+                //create a display method in the employeeList class??
+            }
+        });
     }
 
+    //****************************************************************************************************************//
+                    //Need to figure out is this good indications--> in reference to green//
+    //****************************************************************************************************************//
     @FXML // This method is called by the FXMLLoader when initialization is complete
     void initialize() {
         assert txtPhone != null : "fx:id=\"txtPhone\" was not injected: check your FXML file 'EmployeeInfoPage.fxml'.";

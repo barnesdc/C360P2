@@ -2,10 +2,16 @@ package sample;
 
 //import sun.jvm.hotspot.debugger.Address;
 
+
+
+//****************************************************************************************************************//
+                //Employee Class that the Tech, Eng, and Manager will be inheriting from//
+//****************************************************************************************************************//
+
 public class EmployeeInfo{
 
     private double hourlyRate;
-    protected int hoursWorked;
+    private int hoursWorked;
     private double monthPayment;
     private String lastName;
     private String firstName;
@@ -13,8 +19,8 @@ public class EmployeeInfo{
     private String telephone;
     private String ssn;
     private String job;
-    protected double yearlySalary;
-    protected double netMonthPay;
+    private double yearlySalary;
+    private double netMonthPay;
 
     public double taxRate = .2;
 /*
@@ -43,6 +49,10 @@ public class EmployeeInfo{
 
     }
 */
+
+    //****************************************************************************************************************//
+                                    //Getters and Setters for data input/
+    //****************************************************************************************************************//
 
     public String getLastName() {
         return lastName;

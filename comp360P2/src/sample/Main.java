@@ -14,10 +14,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.io.*;
 
+
+//****************************************************************************************************************//
+                    //Main method creates and sets stage for the form, then shows it//
+//****************************************************************************************************************//
 public class Main extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+
     @Override
     public void start(Stage primaryStage) throws Exception{
 

@@ -1,5 +1,11 @@
 package sample;
 
+
+
+//****************************************************************************************************************//
+                                //Technician Class that inherits from EmployeeInfo//
+//****************************************************************************************************************//
+
 public class Technician extends EmployeeInfo{
 
     private double overTimeRate = 2.5;

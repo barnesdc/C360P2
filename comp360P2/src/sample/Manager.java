@@ -1,5 +1,11 @@
 package sample;
 
+
+
+//****************************************************************************************************************//
+                                        //Manager Class that inherits from EmployeeInfo//
+//****************************************************************************************************************//
+
 public class Manager extends EmployeeInfo{
     private boolean excellentRating;
     private double salaryBonus = .03;
