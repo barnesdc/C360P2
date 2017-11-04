@@ -8,9 +8,7 @@ package sample;
 
 public class Technician extends EmployeeInfo{
 
-    private double overTimeRate = 2.5;
-    private double overTimePay;
-    public int overTimeHrs;
+    private int overTimeHrs;
 
 
     public int getOverTimeHrs() {
@@ -20,10 +18,12 @@ public class Technician extends EmployeeInfo{
     public void setOverTimeHrs(int hoursWorked){
         hoursWorked = this.getHoursWorked();
         overTimeHrs = hoursWorked - 40;
+        if (overTimeHrs < 0)
+            overTimeHrs = 0;
     }
 
     public double overtimePay(double overTimeRate, int overTimeHrs){
-        overTimePay = overTimeHrs * overTimeHrs;
+        double overTimePay = overTimeHrs * overTimeRate;
 
         return overTimePay;
     }

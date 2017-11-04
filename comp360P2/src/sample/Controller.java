@@ -70,6 +70,10 @@ public class Controller {
     @FXML // fx:id="btnExit"
     private Button btnExit; // Value injected by FXMLLoader
 
+    @FXML // fx:id="txtBigDisplay"
+    public TextField txtBigDisplay;
+
+
     employeeList e = new employeeList(); // init arraylist
 
     //****************************************************************************************************************//
@@ -87,7 +91,8 @@ public class Controller {
                 String lName = txtLastName.getText();
                 String addy = txtAddress.getText();
                 String phone = txtPhone.getText();
-                int hours = Integer.parseInt(txtAddress.getText());
+                //hours = Integer.parseInt(txtAddress.getText());
+                String hours = txtHrsWorked.getText();
                 String ssn = txtSSN.getText();
                 // create if state to assign job from comboBox
                 // String job = Jobcombo.
@@ -141,6 +146,7 @@ public class Controller {
             public void handle(ActionEvent event) {
                 //method to display all data
                 //create a display method in the employeeList class??
+
             }
         });
     }

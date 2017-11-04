@@ -19,6 +19,7 @@ public class EmployeeInfo{
     private double yearlySalary;
     private double netMonthPay;
 
+    public double overTimeRate = 2.5;
     public double taxRate = .2;
 /*
     public EmployeeInfo(double empHourlyRate,
