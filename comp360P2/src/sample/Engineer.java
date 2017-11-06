@@ -5,22 +5,42 @@ package sample;
                                 //Engineer Class that inherits from EmployeeInfo//
 //****************************************************************************************************************//
 
-public class Engineer extends EmployeeInfo {
+public class Engineer extends Employee {
 
+    private int hoursWorked;
+    private double hourlyWage = 40.0;
     private boolean newProfitProduct;
-    private int productBonus;
+    private int bonus = 10000;
+    private double monthPayment;
+
+    public int getHoursWorked(){
+        return hoursWorked;
+    }
+
+    public void setHoursWorked(){
+        hoursWorked = this.getHoursWorked();
+    }
 
     public int getBonusElig(){
-       return productBonus;
+       return bonus;
     }
     public void setBonusElig(){
         if (newProfitProduct){
-            productBonus = 10000;
+            bonus = 10000;
         }
         else{
-            productBonus = 0;
+            bonus = 0;
         }
     }
 
+    public double calculateMonthlyPayment(){
+        if(newProfitProduct){
+            monthPayment = hoursWorked * hourlyWage + bonus;
+            return monthPayment;
+        }else{
+            monthPayment = hoursWorked * hourlyWage;
+            return monthPayment;
+        }
+    }
 }
 

@@ -9,8 +9,8 @@ import java.util.ArrayList;
 public class employeeList {
 
     // Creates arrayList
-    private ArrayList<EmployeeInfo>  eList;
-    EmployeeInfo e = new EmployeeInfo();
+    private ArrayList<Employee>  eList;
+    Employee e = new Employee();
 
     Technician t = new Technician();
     Engineer eng = new Engineer();
@@ -18,7 +18,7 @@ public class employeeList {
 
     // arrayList constructor
     public employeeList(){
-        eList = new ArrayList<EmployeeInfo>();
+        eList = new ArrayList<Employee>();
     }
 
     // getEmployee method to pull in items from form
