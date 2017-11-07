@@ -11,50 +11,9 @@ public class Employee{
     private String address;
     private String telephone;
     private String ssn;
-    private double netMonthPay;
+    private double netMonthlyPay;
     public double overTimeRate = 2.5;
     public double taxRate = .2;
-/*
-    public EmployeeInfo(double empHourlyRate,
-                           int empHoursWorked,
-                        double empMonthPayment,
-                        String empLastName,
-                        String empFirstName,
-                        String empAddress,
-                        String empTelephone,
-                        String empSSN,
-                        String empJob,
-                        double empYearlySalary,
-                        double empNetMonthPay,
-                        double empTaxRate){
-
-        lastName    = empLastName;
-        firstName   = empFirstName;
-        address     = empAddress;
-        telephone   = empTelephone;
-        ssn         = empSSN;
-        hourlyRate  = empHourlyRate;
-        hoursWorked = empHoursWorked;
-        monthPayment= empMonthPayment;
-        job         = empJob;
-
-    }
-*/
-public class EmployeeInfo{
-
-    private double hourlyRate;
-    private int hoursWorked;
-    private double monthlyPayment;
-    private String lastName;
-    private String firstName;
-    private String address;
-    private String telephone;
-    private String ssn;
-    private String job;
-    private double yearlySalary;
-    private double netMonthlyPay;
-    private double overTimeRate = 2.5;
-    private double taxRate = .2;
 
 
     //****************************************************************************************************************//

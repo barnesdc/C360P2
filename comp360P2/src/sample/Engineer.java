@@ -22,7 +22,7 @@ public class Engineer extends Employee {
     }
 
     public int getBonusElig(){
-       return bonus;
+        return bonus;
     }
     public void setBonusElig(){
         if (newProfitProduct){

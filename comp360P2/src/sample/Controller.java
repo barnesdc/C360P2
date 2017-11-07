@@ -145,7 +145,7 @@ public class Controller {
             public void handle(ActionEvent event) {
                 //method to display all data
                 //create a display method in the employeeList class??
-                txtBigDisplay.setText(String.valueOf(e.displayEmployee()));
+                //txtBigDisplay.setText(String.valueOf(e.displayEmployee()));
 
             }
         });

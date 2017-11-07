@@ -3,7 +3,7 @@ package sample;
 
 
 //****************************************************************************************************************//
-                                //Technician Class that inherits from EmployeeInfo//
+                                //Technician Class that inherits from Employee//
 //****************************************************************************************************************//
 
 public class Technician extends Employee{
@@ -22,9 +22,9 @@ public class Technician extends Employee{
         hoursWorked = this.getHoursWorked();
     }
 
-    public int get() {
-            return overTimeHrs;
-        }
+    public int getOverTimeHrs() {
+        return overTimeHrs;
+    }
 
     public int calculateOverTimeHrs(int hoursWorked){
         if(hoursWorked > 40){
@@ -49,11 +49,6 @@ public class Technician extends Employee{
             monthPayment = hoursWorked * hourlyWage + overtimePay(overTimeRate, overTimeHrs);
             return monthPayment;
         }
-    }
-
-    @Override
-    public void setMonthlyPayment(double hourlyRate, int hoursWorked){
-
     }
 }
 
