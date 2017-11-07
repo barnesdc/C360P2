@@ -37,9 +37,9 @@
       <TextField fx:id="txtAddress" alignment="CENTER" layoutX="27.0" layoutY="165.0" onAction="#handleSubmit" prefHeight="27.0" prefWidth="342.0" promptText="Address" />
       <TextField fx:id="txtPhone" alignment="CENTER" layoutX="27.0" layoutY="201.0" onAction="#handleSubmit" promptText="Telephone" />
       <TextField fx:id="txtHrsWorked" alignment="CENTER" layoutX="202.0" layoutY="201.0" onAction="#handleSubmit" promptText="Hours Worked" />
-      <CheckBox fx:id="chkOvertime" layoutX="33.0" layoutY="248.0" mnemonicParsing="false" onAction="#handleSubmit" text="Overtime ?" />
-      <CheckBox fx:id="chkNewProduct" layoutX="33.0" layoutY="278.0" mnemonicParsing="false" onAction="#handleSubmit" text="New Product?" />
-      <CheckBox fx:id="chkSucManager" layoutX="33.0" layoutY="310.0" mnemonicParsing="false" onAction="#handleSubmit" text="Successful Manager?" />
+      <CheckBox fx:id="chkOvertime" indeterminate="true" layoutX="33.0" layoutY="248.0" mnemonicParsing="false" onAction="#handleSubmit" text="Overtime ?" />
+      <CheckBox fx:id="chkNewProduct" indeterminate="true" layoutX="33.0" layoutY="278.0" mnemonicParsing="false" onAction="#handleSubmit" text="New Product?" />
+      <CheckBox fx:id="chkSucManager" indeterminate="true" layoutX="33.0" layoutY="310.0" mnemonicParsing="false" onAction="#handleSubmit" text="Successful Manager?" />
       <ComboBox fx:id="Jobcombo" layoutX="202.0" layoutY="236.0" onAction="#handleSubmit" prefHeight="27.0" prefWidth="167.0" promptText="Select Position">
          <items>
             <FXCollections fx:factory="observableArrayList">

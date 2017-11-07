@@ -4,23 +4,6 @@ package sample;
 //****************************************************************************************************************//
                 //Employee Class that the Tech, Eng, and Manager will be inheriting from//
 //****************************************************************************************************************//
-
-public class EmployeeInfo{
-
-    private double hourlyRate;
-    private int hoursWorked;
-    private double monthPayment;
-    private String lastName;
-    private String firstName;
-    private String address;
-    private String telephone;
-    private String ssn;
-    private String job;
-    private double yearlySalary;
-    private double netMonthPay;
-
-    public double overTimeRate = 2.5;
-    public double taxRate = .2;
 /*
     public EmployeeInfo(double empHourlyRate,
                            int empHoursWorked,
@@ -47,6 +30,22 @@ public class EmployeeInfo{
 
     }
 */
+public class EmployeeInfo{
+
+    private double hourlyRate;
+    private int hoursWorked;
+    private double monthlyPayment;
+    private String lastName;
+    private String firstName;
+    private String address;
+    private String telephone;
+    private String ssn;
+    private String job;
+    private double yearlySalary;
+    private double netMonthlyPay;
+    private double overTimeRate = 2.5;
+    private double taxRate = .2;
+
 
     //****************************************************************************************************************//
                                     //Getters and Setters for data input/
@@ -95,31 +94,17 @@ public class EmployeeInfo{
     public String getJobTitle(){
         return job;
     }
-    public void setJobTitle(){
-        //get from check box
+
+    public void setJobTitle(String job){
+            //get from check box
+        this.job = job;
     }
 
     public double getHourlyRate() {
         return hourlyRate;
     }
 
-    public void setHourlyRate(double hourlyRate) {
-        this.hourlyRate = hourlyRate;
-    }
-
-    public int getHoursWorked() {
-        return hoursWorked;
-    }
-
-    public void setHoursWorked(int hoursWorked) {
-        this.hoursWorked = hoursWorked;
-    }
-
-    protected double monthlyPayment(String job,  double hourlyRate, int hoursWorked){
-
-        //Check what position the employee holds, hourlyRate will be different per employee position
-        //Calculate payment for the month
-        //Return payment for the month
+    public void setHourlyRate(String job) {
         switch (this.job) {
             case "technician":
                 hourlyRate = 30;
@@ -131,8 +116,28 @@ public class EmployeeInfo{
                 hourlyRate = 50;
                 break;
         }
-        monthPayment = hoursWorked * hourlyRate * 4;
-        return monthPayment;
+        //this.hourlyRate = hourlyRate;
+    }
+
+    public int getHoursWorked() {
+        return hoursWorked;
+    }
+
+    public void setHoursWorked(int hoursWorked) {
+        this.hoursWorked = hoursWorked;
+    }
+
+    public double getMonthlyPayment(){
+       return monthlyPayment;
+    }
+
+    public void setMonthlyPayment(double hourlyRate, int hoursWorked){
+
+        //Check what position the employee holds, hourlyRate will be different per employee position
+        //Calculate payment for the month
+        //Return payment for the month
+
+        monthlyPayment = hoursWorked * hourlyRate * 4;
     }
 
     public double getYearlySalary(){
@@ -143,11 +148,11 @@ public class EmployeeInfo{
 
     }
 
-    protected double actualPayment(int taxRate, double monthPayment){
+    public double actualPayment(int taxRate, double monthPayment){
         double afterTax = monthPayment * taxRate;
-        netMonthPay = monthPayment - afterTax;
+        netMonthlyPay = monthPayment - afterTax;
 
-        return netMonthPay;
+        return netMonthlyPay;
 
     }
 }

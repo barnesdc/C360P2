@@ -65,7 +65,7 @@ public class Controller {
     private TextField txtSSN; // Value injected by FXMLLoader
 
     @FXML // fx:id="Jobcombo"
-    private ComboBox<?> Jobcombo; // Value injected by FXMLLoader
+    private ComboBox<String> Jobcombo; // Value injected by FXMLLoader
 
     @FXML // fx:id="btnExit"
     private Button btnExit; // Value injected by FXMLLoader
@@ -91,15 +91,13 @@ public class Controller {
                 String lName = txtLastName.getText();
                 String addy = txtAddress.getText();
                 String phone = txtPhone.getText();
-                //hours = Integer.parseInt(txtAddress.getText());
-                String hours = txtHrsWorked.getText();
+                int hours = Integer.parseInt(txtHrsWorked.getText());
+                //String hours = txtHrsWorked.getText();
                 String ssn = txtSSN.getText();
                 // create if state to assign job from comboBox
-                // String job = Jobcombo.
+                String job = Jobcombo.getSelectionModel().getSelectedItem();
 
-
-
-                e.getEmployee(fName,lName,addy,phone,ssn, hours); //calls methods from employee class
+                e.getEmployee(fName,lName,addy,phone,ssn, hours, job); //calls methods from employee class
             }
         });
     }
@@ -110,17 +108,18 @@ public class Controller {
         btnClear.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                txtFirstName.clear();
-                txtLastName.clear();
-                txtAddress.clear();
-                txtPhone.clear();
-                txtHrsWorked.clear();
-                txtOvertime.clear();
-                txtSSN.clear();
-                chkOvertime.setSelected(false);
-                chkNewProduct.setSelected(false);
-                chkSucManager.setSelected(false);
-                // Need to figure out how to get input from 'comboBox'
+                    txtFirstName.clear();
+                    txtLastName.clear();
+                    txtAddress.clear();
+                    txtPhone.clear();
+                    txtHrsWorked.clear();
+                    txtOvertime.clear();
+                    txtSSN.clear();
+                    chkOvertime.setSelected(false);
+                    chkNewProduct.setSelected(false);
+                    chkSucManager.setSelected(false);
+                    // Need to figure out how to get input from 'comboBox'
+
             }
         });
     }
@@ -146,6 +145,7 @@ public class Controller {
             public void handle(ActionEvent event) {
                 //method to display all data
                 //create a display method in the employeeList class??
+                txtBigDisplay.setText(String.valueOf(e.displayEmployee()));
 
             }
         });

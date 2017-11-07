@@ -11,7 +11,7 @@ public class Technician extends EmployeeInfo{
     private int overTimeHrs;
 
 
-    public int getOverTimeHrs() {
+    public int get() {
             return overTimeHrs;
         }
 
@@ -26,6 +26,11 @@ public class Technician extends EmployeeInfo{
         double overTimePay = overTimeHrs * overTimeRate;
 
         return overTimePay;
+    }
+
+    @Override
+    public void setMonthlyPayment(double hourlyRate, int hoursWorked){
+
     }
 }
 
