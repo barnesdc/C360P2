@@ -4,6 +4,19 @@ package sample;
 //****************************************************************************************************************//
                 //Employee Class that the Tech, Eng, and Manager will be inheriting from//
 //****************************************************************************************************************//
+<<<<<<< HEAD:comp360P2/src/sample/EmployeeInfo.java
+=======
+
+public class Employee{
+    private String lastName;
+    private String firstName;
+    private String address;
+    private String telephone;
+    private String ssn;
+    private double netMonthPay;
+    public double overTimeRate = 2.5;
+    public double taxRate = .2;
+>>>>>>> origin/tdanner91comp360p2edits:comp360P2/src/sample/Employee.java
 /*
     public EmployeeInfo(double empHourlyRate,
                            int empHoursWorked,
@@ -91,6 +104,7 @@ public class EmployeeInfo{
         this.ssn = ssn;
     }
 
+<<<<<<< HEAD:comp360P2/src/sample/EmployeeInfo.java
     public String getJobTitle(){
         return job;
     }
@@ -147,6 +161,8 @@ public class EmployeeInfo{
         yearlySalary = monthPayment * 12;
 
     }
+=======
+>>>>>>> origin/tdanner91comp360p2edits:comp360P2/src/sample/Employee.java
 
     public double actualPayment(int taxRate, double monthPayment){
         double afterTax = monthPayment * taxRate;

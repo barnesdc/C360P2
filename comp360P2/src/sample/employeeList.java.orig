@@ -9,8 +9,13 @@ import java.util.ArrayList;
 public class employeeList {
 
     // Creates arrayList
+<<<<<<< HEAD
     private ArrayList<EmployeeInfo>  eList;
     //EmployeeInfo e = new EmployeeInfo();
+=======
+    private ArrayList<Employee>  eList;
+    Employee e = new Employee();
+>>>>>>> origin/tdanner91comp360p2edits
 
     Technician t = new Technician();
     Engineer eng = new Engineer();
@@ -18,14 +23,18 @@ public class employeeList {
 
     // arrayList constructor
     public employeeList(){
+<<<<<<< HEAD
+        eList = new ArrayList<>();
+=======
         eList = new ArrayList<Employee>();
+>>>>>>> origin/tdanner91comp360p2edits
     }
 
     // getEmployee method to pull in items from form
     public void getEmployee(String fName, String lName, String addy, String phone, String ssn, int hoursWorked, String job){
 
 
-        String sΩ2wwwzzjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj = job;
+        String s = job;
         if(s.equals("Technician")){
             t.setJobTitle(s);
             t.setFirstName(fName);
