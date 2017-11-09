@@ -1,54 +1,59 @@
 package sample;
 
 
-
 //****************************************************************************************************************//
-                                //Technician Class that inherits from Employee//
+//Technician Class that inherits from Employee//
 //****************************************************************************************************************//
 
-public class Technician extends Employee{
+public class Technician extends Employee {
 
-    private int hoursWorked;
+    //private int hoursWorked;
     private double hourlyWage = 30.0;
-    private int overTimeHrs;
-    private double monthPayment;
-    public double overTimePay;
+    private double toTax;
+    private double taxes;
 
-    public int getHoursWorked() {
-        return hoursWorked;
+    public Technician() {
+        monthlyPayment = 0;
+        overTimeRate = 2.5;
     }
 
-    public void setHoursWorked() {
-        hoursWorked = this.getHoursWorked();
+    public double getOverTimePay() {
+        return overTimePay;
     }
 
-    public int getOverTimeHrs() {
-        return overTimeHrs;
+    public double getMonthlyPayment() {
+        return monthlyPayment;
     }
 
-    public int calculateOverTimeHrs(int hoursWorked){
-        if(hoursWorked > 40){
-            overTimeHrs = hoursWorked - 40;
-            return overTimeHrs;
-        }
-        else{
-            return overTimeHrs = 0;
-        }
+    private double overTimeRate;
+    private double monthlyPayment;
+
+
+    public double calculateOverTimePay() {
+        return overTimePay = overTimeHrs * overTimeRate * hourlyWage;
     }
 
-    public double overtimePay(double overTimeRate, int overTimeHrs){
-        return overTimePay = overTimeHrs * overTimeRate;
+    public void calculateMonthPayment() {
+        toTax = hoursWorked * hourlyWage + calculateOverTimePay();
+        taxes = toTax * taxRate;
+        monthlyPayment = toTax - taxes;
     }
 
-    public double calculateMonthPayment(){
-        if(overTimeHrs == 0){
-            monthPayment =  hoursWorked * hourlyWage;
-            return monthPayment;
-        }
-        else{
-            monthPayment = hoursWorked * hourlyWage + overtimePay(overTimeRate, overTimeHrs);
-            return monthPayment;
-        }
+    //****************************************************************************************************************//
+    //toString method to display Employee info to the GUI/
+    //****************************************************************************************************************//
+
+    public String toString(){
+
+        String info = "Pay for the month: " + monthlyPayment
+                + "\nOvertime Hrs: " + overTimeHrs
+                + "\nOvertime Pay:  $" + overTimePay
+                + "\n \n";
+
+        return super.toString() + info;
     }
+
+
+
 }
 

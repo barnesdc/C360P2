@@ -1,6 +1,7 @@
 package sample;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 
 //****************************************************************************************************************//
@@ -8,10 +9,10 @@ import java.util.ArrayList;
 //****************************************************************************************************************//
 public class employeeList {
 
-    // Creates arrayList
+    // Create a an employee array list
     private ArrayList<Employee>  eList;
-    //EmployeeInfo e = new EmployeeInfo();
 
+    // Create object for each type of employee
     Technician t = new Technician();
     Engineer eng = new Engineer();
     Manager m = new Manager();
@@ -21,94 +22,99 @@ public class employeeList {
         eList = new ArrayList<Employee>();
     }
 
-    // getEmployee method to pull in items from form
-    public void getEmployee(String fName, String lName, String addy, String phone, String ssn, int hoursWorked, String job){
+    // getEmployee method to pull in items from TextFields/CheckBoxes from form
+    public void getEmployee(String fName, String lName, String addy, String phone, String ssn, int hoursWorked, String job, boolean chkIncentives) {
 
 
         String s = job;
-        if(s.equals("Technician")){
-            //t.setJobTitle(s);
+        if (s.equals("Technician")) {
+            t.setJobTitle(s);
             t.setFirstName(fName);
             t.setLastName(lName);
             t.setAddress(addy);
             t.setTelephone(phone);
             t.setSsn(ssn);
-            //t.setHourlyRate(job);
-            //t.setHoursWorked(hoursWorked);
-            //t.getMonthlyPayment();
+            t.setHoursWorked(hoursWorked);
+            t.setOverTimeHrs(hoursWorked);
+            t.calculateMonthPayment();
             eList.add(t);
         }
-        if(s.equals("Engineer")){
-            //eng.setJobTitle(s);
+        if (s.equals("Engineer")) {
+            eng.setJobTitle(s);
             eng.setFirstName(fName);
             eng.setLastName(lName);
             eng.setAddress(addy);
             eng.setTelephone(phone);
             eng.setSsn(ssn);
-            //eng.getMonthlyPayment();
+            eng.setHoursWorked(hoursWorked);
+            eng.setChkIncentives(chkIncentives);
+            eng.calculateMonthlyPayment();
+            eng.calculateBonusElig();
             eList.add(eng);
         }
-        if(s.equals("Manager")){
-            //m.setJobTitle(s);
+        if (s.equals("Manager")) {
+            m.setJobTitle(s);
             m.setFirstName(fName);
             m.setLastName(lName);
             m.setAddress(addy);
             m.setTelephone(phone);
             m.setSsn(ssn);
-            //t.setMonthlyPayment(hoursWorked);
+            m.setHoursWorked(hoursWorked);
+            m.calculateMonthlyPayment();
+            m.setChkIncentives(chkIncentives);
+            m.calculateAnnualSalary();
             eList.add(m);
-
         }
-        for(int i = 0; i < eList.size(); i++){
-            System.out.println(eList.get(i));
-        }
-        //e.setHoursWorked(hoursWorked);
 
-        //Use for technician
-        //hours - 40  --> anything left is overtime, pass to technician
-        //if overtime is < 0 --> treat as if 0
-        //same thing for both bonus booleans
+        //System.out.println("Size of array list " + eList.size());
 
+    }
 
-/*
-    public ArrayList<Employee> displayEmployee(){
-        //for ( EmployeeInfo elem : eList){
-          //  System.out.println(t);
-        //}
-        for(int i = 0; i < eList.size(); i++){
-            System.out.println(eList.get(i));
-        }
-        return eList;
-    }*/
+    public String getDisplay(){
+        return eList.toString();
+    }
 
+    public String getCount(){
+        String count = Integer.toString(eList.size()+1);
+        return count;
+    }
 }
 
+//****************************************************************************************************************//
+                    //Use below for testing TextField input and object creation//
+//****************************************************************************************************************//
 
         /*
-        System.out.println("Name: " + t.getFirstName() + " " +  t.getLastName()
-                + " \nAddress: " +  t.getAddress() +
+        System.out.println("Name: " + t.getFirstName() + " " + t.getLastName()
+                + " \nAddress: " + t.getAddress() +
                 " \nTelephone: " + t.getTelephone() +
-                " \nSSN: " +  t.getSsn() +
+                " \nSSN: " + t.getSsn() +
                 " \nJob Title: " + t.getJobTitle() +
-                " \nPay for the month: " + t.getMonthlyPayment());
+                " \nPay for the month: $" + t.calculateMonthPayment() +
+                " \nOvertime Pay:  $"     + t.calculateOverTimePay());
         System.out.println();
         //
+
+
         System.out.println("Name: " + eng.getFirstName() + " " +  eng.getLastName() +
                 " \nTelephone: " + eng.getTelephone() +
                 " \nSSN: " +  eng.getSsn() +
-                " \nJob Title: " + eng.getJobTitle() +
-                " \nPay for the month: " + eng.getMonthlyPayment());
-
+                " \nJob Title: " + t.getJobTitle() +
+                " \nPay for the month: " + eng.calculateMonthlyPayment()+
+                " \nBonusEligible: " + eng.getChkIncentives() +
+                " \nBonus: $" + eng.calculateBonusElig());
         System.out.println();
 
         System.out.println("Name: " + m.getFirstName() + " " +  m.getLastName()
                 + " \nAddress: " +  m.getAddress() +
                 " \nTelephone: " + m.getTelephone() +
                 " \nSSN: " +  m.getSsn() +
-                " \nJob Title: " + m.getJobTitle() +
-                " \nPay for the month: " + m.getMonthlyPayment());
+                " \nJob Title: " + t.getJobTitle() +
+                " \nPay for the month: " + m.calculateMonthlyPayment() +
+                " \nBonusEligible: " + m.chkIncentives +
+                        " \nBonus: $" + m.calculateSalaryBonus() +
+                " \nSalary : $ " + m.calculateAnnualSalary());
         System.out.println();*/
-    //print size of array list to verify its actually increasing
-}
+//print size of array list to verify its actually increasing
 
 

@@ -4,13 +4,11 @@
 
 package sample;
 
+import java.io.Console;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.event.*;
 
 
@@ -19,11 +17,18 @@ public class Controller {
     //****************************************************************************************************************//
                                     //Declarations for actual buttons from form//
     //****************************************************************************************************************//
+
     @FXML // ResourceBundle that was given to the FXMLLoader
     private ResourceBundle resources;
 
     @FXML // URL location of the FXML file that was given to the FXMLLoader
     private URL location;
+
+    @FXML
+    private TextArea textarea;  //textArea box
+
+    @FXML
+    private TextField empCount;
 
     @FXML // fx:id="txtPhone"
     private TextField txtPhone; // Value injected by FXMLLoader
@@ -39,9 +44,6 @@ public class Controller {
 
     @FXML // fx:id="txtOvertime"
     private TextField txtOvertime; // Value injected by FXMLLoader
-
-    @FXML // fx:id="chkOvertime"
-    private CheckBox chkOvertime; // Value injected by FXMLLoader
 
     @FXML // fx:id="txtAddress"
     private TextField txtAddress; // Value injected by FXMLLoader
@@ -65,7 +67,7 @@ public class Controller {
     private TextField txtSSN; // Value injected by FXMLLoader
 
     @FXML // fx:id="Jobcombo"
-    private ComboBox<String> Jobcombo; // Value injected by FXMLLoader
+    private ComboBox<String> jobCombo; // Value injected by FXMLLoader
 
     @FXML // fx:id="btnExit"
     private Button btnExit; // Value injected by FXMLLoader
@@ -75,30 +77,46 @@ public class Controller {
 
 
     employeeList e = new employeeList(); // init arraylist
+    boolean chkIncentives;               // boolean value to get checkbox values
+    int hours = 0;                       // initialize hours
 
     //****************************************************************************************************************//
                                         //Handlers for buttons//
     //****************************************************************************************************************//
 
     // Method for submit button
-    // Receives all inputs from form and places into employeeArraylist
+    // Receives all inputs from TextFields and Checkboxes and places into employeeArraylist
     @FXML
     void handleSubmit(ActionEvent event) {
-        btnSubmit.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                String fName = txtFirstName.getText();
-                String lName = txtLastName.getText();
-                String addy = txtAddress.getText();
-                String phone = txtPhone.getText();
-                int hours = Integer.parseInt(txtHrsWorked.getText());
-                //String hours = txtHrsWorked.getText();
-                String ssn = txtSSN.getText();
-                // create if state to assign job from comboBox
-                String job = Jobcombo.getSelectionModel().getSelectedItem();
+        btnSubmit.setOnAction(event1 -> {
+            String fName = txtFirstName.getText();
+            String lName = txtLastName.getText();
+            String addy = txtAddress.getText();
+            String phone = txtPhone.getText();
+            hours = Integer.parseInt(txtHrsWorked.getText());
+            //String hours = txtHrsWorked.getText();
+            String ssn = txtSSN.getText();
 
-                e.getEmployee(fName,lName,addy,phone,ssn, hours, job); //calls methods from employee class
+            // create if state to assign job from comboBox
+            // set condition for incentives
+            String job = jobCombo.getSelectionModel().getSelectedItem();
+            switch (job) {
+                case "Manager":
+                    if (chkSucManager.isSelected()) chkIncentives = true;
+                    else chkIncentives = false;
+                    chkNewProduct.setSelected(false);
+                    break;
+                case "Engineer":
+                    if (chkNewProduct.isSelected()) chkIncentives = true;
+                    else chkIncentives = false;
+                    chkSucManager.setSelected(false);
+                    break;
+                default:
+                    chkIncentives = false;
+                    break;
             }
+            empCount.setText(String.valueOf(e.getCount()));
+            e.getEmployee(fName,lName,addy,phone,ssn, hours, job, chkIncentives); //calls methods from employee class
         });
     }
 
@@ -115,11 +133,10 @@ public class Controller {
                     txtHrsWorked.clear();
                     txtOvertime.clear();
                     txtSSN.clear();
-                    chkOvertime.setSelected(false);
+                    jobCombo.getSelectionModel().clearSelection();
                     chkNewProduct.setSelected(false);
                     chkSucManager.setSelected(false);
-                    // Need to figure out how to get input from 'comboBox'
-
+                    textarea.clear();
             }
         });
     }
@@ -143,12 +160,20 @@ public class Controller {
         btnDisplay.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                //method to display all data
-                //create a display method in the employeeList class??
-                //txtBigDisplay.setText(String.valueOf(e.displayEmployee()));
 
+               textarea.setText(String.valueOf(e.getDisplay()));
+
+               if(String.valueOf(e.t.getOverTimeHrs()).equals("0")){
+                   txtOvertime.setText("0");
+                }
+                else{
+               txtOvertime.setText(String.valueOf(e.t.getOverTimeHrs()));
+               }
             }
+
         });
+
+
     }
 
     //****************************************************************************************************************//
@@ -161,7 +186,6 @@ public class Controller {
         assert chkSucManager != null : "fx:id=\"chkSucManager\" was not injected: check your FXML file 'EmployeeInfoPage.fxml'.";
         assert btnClear != null : "fx:id=\"btnClear\" was not injected: check your FXML file 'EmployeeInfoPage.fxml'.";
         assert txtOvertime != null : "fx:id=\"txtOvertime\" was not injected: check your FXML file 'EmployeeInfoPage.fxml'.";
-        assert chkOvertime != null : "fx:id=\"chkOvertime\" was not injected: check your FXML file 'EmployeeInfoPage.fxml'.";
         assert txtAddress != null : "fx:id=\"txtAddress\" was not injected: check your FXML file 'EmployeeInfoPage.fxml'.";
         assert btnDisplay != null : "fx:id=\"btnDisplay\" was not injected: check your FXML file 'EmployeeInfoPage.fxml'.";
         assert txtHrsWorked != null : "fx:id=\"txtHrsWorked\" was not injected: check your FXML file 'EmployeeInfoPage.fxml'.";
@@ -169,7 +193,7 @@ public class Controller {
         assert txtFirstName != null : "fx:id=\"txtFirstName\" was not injected: check your FXML file 'EmployeeInfoPage.fxml'.";
         assert btnSubmit != null : "fx:id=\"btnSubmit\" was not injected: check your FXML file 'EmployeeInfoPage.fxml'.";
         assert txtSSN != null : "fx:id=\"txtSSN\" was not injected: check your FXML file 'EmployeeInfoPage.fxml'.";
-        assert Jobcombo != null : "fx:id=\"Jobcombo\" was not injected: check your FXML file 'EmployeeInfoPage.fxml'.";
+        assert jobCombo != null : "fx:id=\"Jobcombo\" was not injected: check your FXML file 'EmployeeInfoPage.fxml'.";
         assert btnExit != null : "fx:id=\"btnExit\" was not injected: check your FXML file 'EmployeeInfoPage.fxml'.";
 
     }

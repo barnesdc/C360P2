@@ -5,15 +5,20 @@ package sample;
                 //Employee Class that the Tech, Eng, and Manager will be inheriting from//
 //****************************************************************************************************************//
 
-public class Employee{
+public abstract class Employee{
     private String lastName;
     private String firstName;
     private String address;
     private String telephone;
     private String ssn;
-    private double netMonthlyPay;
-    public double overTimeRate = 2.5;
-    public double taxRate = .2;
+    private double MonthlyPay;
+    protected int overTimeHrs;
+    protected double taxRate = .2;
+    protected int hoursWorked;
+    protected double overTimePay;
+    protected boolean chkIncentives;
+
+    private String jobTitle;
 
 
     //****************************************************************************************************************//
@@ -61,11 +66,71 @@ public class Employee{
     }
 
 
-    protected double actualPayment(int taxRate, double monthPayment){
-        double afterTax = monthPayment * taxRate;
-        netMonthlyPay = monthPayment - afterTax;
-
-        return netMonthlyPay;
-
+    public int getHoursWorked() {
+        return hoursWorked;
     }
+
+    public void setOverTimeHrs(int hoursWorked) {
+        if(hoursWorked > 40){
+            this.overTimeHrs = hoursWorked - 40;
+        }
+        else{
+            overTimeHrs = 0;
+        }
+    }
+
+    public int getOverTimeHrs(){
+        return overTimeHrs;
+    }
+
+    public boolean getChkIncentives() {
+        return chkIncentives;
+    }
+
+    public String getJobTitle(){
+        return jobTitle;
+    }
+
+    public void setJobTitle(String jobTitle){
+        this.jobTitle = jobTitle;
+    }
+
+    public void setChkIncentives(boolean chkIncentives) {
+        this.chkIncentives = chkIncentives;
+    }
+
+
+    public void setHoursWorked(int hoursWorked) {
+        if(jobTitle.equals("Technician")){
+            if(hoursWorked > 40) {
+                this.hoursWorked = 40;
+            }
+            else{
+                this.hoursWorked = hoursWorked;
+            }
+        }
+        else{
+            this.hoursWorked = hoursWorked;
+        }
+    }
+
+
+    //****************************************************************************************************************//
+                            //toString method to display Employee info to the GUI/
+    //****************************************************************************************************************//
+
+
+    @Override
+    public String toString(){
+
+        String info = "\n"
+                        +"Name: " + firstName + " " + lastName
+                        + "\nAddress: " +  address
+                        + "\nTelephone: " + telephone
+                        + "\nSSN: " + ssn
+                        + "\nJob Title: " + jobTitle
+                        + "\n";
+        return info;
+    }
+
 }

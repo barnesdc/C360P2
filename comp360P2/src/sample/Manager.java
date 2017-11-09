@@ -7,25 +7,67 @@ package sample;
 //****************************************************************************************************************//
 
 public class Manager extends Employee{
-    private double yearlySalary = 100000;
-    private boolean excellentRating;
-    private double salaryBonus = .03;
+
+    private double yearlySalary;
+    private double actualSalary;
+    private double salaryBonus;
     private double actualBonus;
+    private double monthlyPayment;
+    private double toTax;
+    private double taxes;
+
+    public Manager() {
+        salaryBonus = .03;
+        yearlySalary = 100000;
+    }
+
 
     public double getYearlySalary(){
         return yearlySalary;
     }
-    protected void setAnnualSalary(int monthPayment){
-        yearlySalary = this.getYearlySalary();
 
+    public double getActualBonus(){
+        return  actualBonus;
     }
-    public double getSalaryBonus(){
-        return actualBonus;
+
+
+    public void calculateAnnualSalary(){
+        double temp = yearlySalary + calculateSalaryBonus();
+        actualSalary = Math.round(temp * 100)/100D;
     }
-    public void setSalaryBonus(){
-        if(excellentRating){
-            actualBonus = this.getYearlySalary() * salaryBonus;
+
+
+    public double calculateSalaryBonus(){
+        if(chkIncentives){
+            actualBonus = Math.round(yearlySalary * salaryBonus);
+            return actualBonus;
         }
+        else{
+            actualBonus = 0;
+            return actualBonus;
+        }
+    }
 
+
+    public double calculateMonthlyPayment() {
+        double temp = yearlySalary / 12;
+        taxes = temp * taxRate;
+        monthlyPayment = temp - taxRate;
+        return monthlyPayment = Math.round(temp * 100)/100D;
+    }
+
+    //****************************************************************************************************************//
+    //toString method to display Employee info to the GUI/
+    //****************************************************************************************************************//
+
+    public String toString(){
+
+        String info ="Pay for the month: " + monthlyPayment
+                        + "\nBonusEligible: " + chkIncentives
+                        + "\nBonus: $" + actualBonus
+                        + "\nAnnual Pay (before tax): $" + actualSalary + taxRate
+                        + "\n \n ";
+
+        return super.toString() + info;
     }
 }

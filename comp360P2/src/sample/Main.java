@@ -25,12 +25,5 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(root, 600, 480));
         primaryStage.show();
         root.requestFocus();
-
-
     }
-
-
-
-
-        //List<EmployeeInfo> employee = new ArrayList<EmployeeInfo>();
 }
