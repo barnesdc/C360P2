@@ -32,14 +32,14 @@
             <Image url="@Pictures/aggieDog.jpg" />
          </image>
       </ImageView>
-      <TextField fx:id="txtFirstName" alignment="CENTER" layoutX="27.0" layoutY="133.0" onAction="#handleSubmit" promptText="First Name" />
-      <TextField fx:id="txtLastName" alignment="CENTER" layoutX="202.0" layoutY="133.0" onAction="#handleSubmit" promptText="Last Name" />
-      <TextField fx:id="txtAddress" alignment="CENTER" layoutX="27.0" layoutY="165.0" onAction="#handleSubmit" prefHeight="27.0" prefWidth="342.0" promptText="Address" />
-      <TextField fx:id="txtPhone" alignment="CENTER" layoutX="27.0" layoutY="201.0" onAction="#handleSubmit" promptText="Telephone" />
-      <TextField fx:id="txtHrsWorked" alignment="CENTER" layoutX="202.0" layoutY="201.0" onAction="#handleSubmit" promptText="Hours Worked" />
-      <CheckBox fx:id="chkNewProduct" layoutX="33.0" layoutY="278.0" mnemonicParsing="false" onAction="#handleSubmit" text="New Product?" />
-      <CheckBox fx:id="chkSucManager" layoutX="33.0" layoutY="310.0" mnemonicParsing="false" onAction="#handleSubmit" text="Successful Manager?" />
-      <ComboBox fx:id="jobCombo" layoutX="202.0" layoutY="236.0" onAction="#handleSubmit" prefHeight="27.0" prefWidth="167.0" promptText="Select Position">
+      <TextField fx:id="txtFirstName" alignment="CENTER" layoutX="27.0" layoutY="133.0" promptText="First Name" />
+      <TextField fx:id="txtLastName" alignment="CENTER" layoutX="202.0" layoutY="133.0" promptText="Last Name" />
+      <TextField fx:id="txtAddress" alignment="CENTER" layoutX="27.0" layoutY="165.0" prefHeight="27.0" prefWidth="342.0" promptText="Address" />
+      <TextField fx:id="txtPhone" alignment="CENTER" layoutX="27.0" layoutY="201.0" promptText="Telephone" />
+      <TextField fx:id="txtHrsWorked" alignment="CENTER" layoutX="202.0" layoutY="201.0" promptText="Hours Worked" />
+      <CheckBox fx:id="chkNewProduct" layoutX="33.0" layoutY="278.0" mnemonicParsing="false" text="New Product?" />
+      <CheckBox fx:id="chkSucManager" layoutX="33.0" layoutY="310.0" mnemonicParsing="false" text="Successful Manager?" />
+      <ComboBox fx:id="jobCombo" layoutX="202.0" layoutY="236.0" prefHeight="27.0" prefWidth="167.0" promptText="Select Position">
          <items>
             <FXCollections fx:factory="observableArrayList">
                <String fx:value="Technician" />
@@ -48,8 +48,8 @@
             </FXCollections>
          </items>
       </ComboBox>
-      <TextField fx:id="txtOvertime" alignment="CENTER" editable="false" layoutX="202.0" layoutY="274.0" onAction="#handleSubmit" promptText="Overtime Hours Worked" style="-fx-background-color: lightgrey;" />
-      <TextField fx:id="txtSSN" alignment="CENTER" layoutX="202.0" layoutY="311.0" onAction="#handleSubmit" promptText="Employee SSN">
+      <TextField fx:id="txtOvertime" alignment="CENTER" editable="false" layoutX="202.0" layoutY="274.0" promptText="Overtime Hours Worked" style="-fx-background-color: lightgrey;" />
+      <TextField fx:id="txtSSN" alignment="CENTER" layoutX="202.0" layoutY="311.0" promptText="Employee SSN">
          <font>
             <Font name="System Bold Italic" size="13.0" />
          </font></TextField>
@@ -63,7 +63,7 @@
          </font>
       </TextField>
       <TextArea fx:id="textarea" editable="false" layoutX="29.0" layoutY="344.0" prefHeight="122.0" prefWidth="529.0" wrapText="true" />
-      <TextField fx:id="empCount" layoutX="416.0" layoutY="279.0" onAction="#handleSubmit" prefHeight="27.0" prefWidth="61.0" promptText="count" />
+      <TextField fx:id="empCount" layoutX="416.0" layoutY="279.0" prefHeight="27.0" prefWidth="61.0" promptText="count" />
       <Label alignment="TOP_LEFT" layoutX="389.0" layoutY="256.0" prefHeight="17.0" prefWidth="110.0" text="No. of Employees" textAlignment="CENTER" />
    </children>
 </Pane>

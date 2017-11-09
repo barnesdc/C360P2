@@ -13,10 +13,6 @@ public class employeeList {
     private ArrayList<Employee>  eList;
 
     // Create object for each type of employee
-    Technician t = new Technician();
-    Engineer eng = new Engineer();
-    Manager m = new Manager();
-
     // arrayList constructor
     public employeeList(){
         eList = new ArrayList<Employee>();
@@ -28,6 +24,7 @@ public class employeeList {
 
         String s = job;
         if (s.equals("Technician")) {
+            Technician t = new Technician();
             t.setJobTitle(s);
             t.setFirstName(fName);
             t.setLastName(lName);
@@ -40,6 +37,7 @@ public class employeeList {
             eList.add(t);
         }
         if (s.equals("Engineer")) {
+            Engineer eng = new Engineer();
             eng.setJobTitle(s);
             eng.setFirstName(fName);
             eng.setLastName(lName);
@@ -53,6 +51,7 @@ public class employeeList {
             eList.add(eng);
         }
         if (s.equals("Manager")) {
+            Manager m = new Manager();
             m.setJobTitle(s);
             m.setFirstName(fName);
             m.setLastName(lName);

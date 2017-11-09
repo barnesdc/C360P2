@@ -88,7 +88,7 @@ public class Controller {
     // Receives all inputs from TextFields and Checkboxes and places into employeeArraylist
     @FXML
     void handleSubmit(ActionEvent event) {
-        btnSubmit.setOnAction(event1 -> {
+       // btnSubmit.setOnAction(event1 -> {
             String fName = txtFirstName.getText();
             String lName = txtLastName.getText();
             String addy = txtAddress.getText();
@@ -117,15 +117,15 @@ public class Controller {
             }
             empCount.setText(String.valueOf(e.getCount()));
             e.getEmployee(fName,lName,addy,phone,ssn, hours, job, chkIncentives); //calls methods from employee class
-        });
+     //   });
     }
 
     // Method to clear all items on form
     @FXML
     void handleClear(ActionEvent event) {
-        btnClear.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
+        //btnClear.setOnAction(new EventHandler<ActionEvent>() {
+            //@Override
+            //public void handle(ActionEvent event) {
                     txtFirstName.clear();
                     txtLastName.clear();
                     txtAddress.clear();
@@ -137,41 +137,34 @@ public class Controller {
                     chkNewProduct.setSelected(false);
                     chkSucManager.setSelected(false);
                     textarea.clear();
-            }
-        });
+           // }
+        //});
     }
 
     // Method to exit the program
     @FXML
     void handleExit(ActionEvent event) {
-        btnExit.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
+        //btnExit.setOnAction(new EventHandler<ActionEvent>() {
+            //@Override
+            //public void handle(ActionEvent event) {
                 System.exit(0);
                 // Figure out if there is a better way to exit the program
                 // Is it normal for double click all buttons to exit, submit, etc
-            }
-        });
+            //}
+        //});
     }
 
 
     @FXML
     void handleDisplay(ActionEvent event) {
-        btnDisplay.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
+        //btnDisplay.setOnAction(new EventHandler<ActionEvent>() {
+         //   @Override
+            //public void handle(ActionEvent event) {
 
                textarea.setText(String.valueOf(e.getDisplay()));
 
-               if(String.valueOf(e.t.getOverTimeHrs()).equals("0")){
-                   txtOvertime.setText("0");
-                }
-                else{
-               txtOvertime.setText(String.valueOf(e.t.getOverTimeHrs()));
-               }
-            }
 
-        });
+      //  });
 
 
     }

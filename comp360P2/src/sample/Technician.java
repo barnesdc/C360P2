@@ -46,9 +46,9 @@ public class Technician extends Employee {
     public String toString(){
 
         String info = "Pay for the month: " + monthlyPayment
-                + "\nOvertime Hrs: " + overTimeHrs
-                + "\nOvertime Pay:  $" + overTimePay
-                + "\n \n";
+                        + "\nOvertime Hrs: " + overTimeHrs
+                        + "\nOvertime Pay:  $" + overTimePay
+                        + "\n \n";
 
         return super.toString() + info;
     }
